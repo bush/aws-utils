@@ -11,10 +11,10 @@ BODY="{}"
 help ()
 {
   echo "Usage: $0 [-h] [-a aws-profile] [-u username] [-p password] <method> <path>"
-  echo "$0 -p p2c-prod -u admin@example.com -p Passw0rd! GET notes"
+  echo "$0 -a p2c-prod -u admin@example.com -p Passw0rd! GET notes"
 }
 
-while getopts ":hr:p:" option; do
+while getopts ":ha:u:p:" option; do
   case "$option" in
     h)
         help
@@ -24,13 +24,13 @@ while getopts ":hr:p:" option; do
         PROFILE="$OPTARG"
         ;;
     u)
-        USERNAME="$OPTAGRG"
+        USERNAME="$OPTARG"
         ;;
     p)
-        PASSWORD="$OPTAGRG"
+        PASSWORD="$OPTARG"
         ;;
     b)
-        BODY="$OPTAGRG"
+        BODY="$OPTARG"
         ;;
     :)
         echo "Error: -$OPTARG requires an argument" 
