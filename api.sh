@@ -14,7 +14,7 @@ help ()
   echo "$0 -a p2c-prod -u admin@example.com -p Passw0rd! GET notes"
 }
 
-while getopts ":ha:u:p:" option; do
+while getopts ":ha:u:p:b:" option; do
   case "$option" in
     h)
         help
