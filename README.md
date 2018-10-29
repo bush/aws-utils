@@ -35,7 +35,7 @@ $ sudo apt-get install jq
 
 ## Run the environment script
 
-Run the `env.sh` to get call the environment variables setup.  Simple send the ouput to a file named `env` in the same directory that you will run the script.  Before running the script modify the following environment varibles in `env.sh`
+Run the `env.sh` script to get call the environment variables.  Simply send the ouput to a file named `env` in the same directory that you will run the script.  Before running the script modify the following environment varibles in `env.sh`
 
 ```
 STAGE="dev"
