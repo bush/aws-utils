@@ -1,5 +1,5 @@
 #!/bin/bash
-PROFILE="p2c-dev"
+PROFILE="cta-dev"
 USERNAME="admin@example.com"
 PASSWORD="Passw0rd!"
 

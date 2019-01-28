@@ -1,6 +1,6 @@
 #defaults
 STAGE="dev"
-PROFILE="p2c-dev"
+PROFILE="cta-dev"
 DEFAULT_REGION="us-east-1"
 
 help ()
@@ -33,9 +33,9 @@ done
 
 USER_POOL_ID=$(aws --profile $PROFILE cognito-idp  list-user-pools --max-results 1 | jq -r .UserPools[0].Id)
 USER_POOL_REGION=$(echo $USER_POOL_ID | cut -d'_' -f 1 )
-APP_CLIENT_ID=$(aws --profile p2c-dev cognito-idp list-user-pool-clients --user-pool-id $USER_POOL_ID --max-results 1 | jq -r .UserPoolClients[0].ClientId)
-IDENTITY_POOL_ID=$(aws --profile p2c-dev cognito-identity list-identity-pools --max-results 1 | jq -r .IdentityPools[0].IdentityPoolId)
-REST_API_ID=$(aws --profile p2c-dev apigateway get-rest-apis | jq -r .items[0].id)
+APP_CLIENT_ID=$(aws --profile $PROFILE cognito-idp list-user-pool-clients --user-pool-id $USER_POOL_ID --max-results 1 | jq -r .UserPoolClients[0].ClientId)
+IDENTITY_POOL_ID=$(aws --profile $PROFILE cognito-identity list-identity-pools --max-results 1 | jq -r .IdentityPools[0].IdentityPoolId)
+REST_API_ID=$(aws --profile $PROFILE apigateway get-rest-apis | jq -r .items[0].id)
 
 echo "STAGE=$STAGE"
 echo "PROFILE=$PROFILE"
