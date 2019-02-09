@@ -53,7 +53,6 @@ done
 #USER_POOL_ID=$(aws --profile $PROFILE --region $DEFAULT_REGION cognito-idp  list-user-pools --max-results 1 | jq -r .UserPools[0].Id)
 #USER_POOL_REGION=$(echo $USER_POOL_ID | cut -d'_' -f 1 )
 USERPOOLS=$(aws --profile $PROFILE --region $DEFAULT_REGION cognito-idp  list-user-pools --max-results 60 | jq -r .UserPools)
-echo $USERPOOLS
 USER_POOL_ID=$(search_json_array "$USERPOOLS" $STAGE Name Id)
 USERPOOL_CLIENTS=$(aws --profile $PROFILE --region $DEFAULT_REGION cognito-idp list-user-pool-clients --user-pool-id $USER_POOL_ID --max-results 60 | jq -r .UserPoolClients)
 USERPOOL_CLIENT_ID=$(search_json_array "$USERPOOL_CLIENTS" $STAGE ClientName ClientId)
